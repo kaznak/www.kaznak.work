@@ -23,6 +23,7 @@ task/deploy
 + Add table of contents for each post
 + Handle multilanguage
 + Handle tags
++ Sitemap generation for google
 
 ## Tools
 
@@ -30,6 +31,9 @@ task/deploy
 + [Sekleton.css](http://getskeleton.com/)
 + [github](https://github.com/)
 + [netlify](https://www.netlify.com/)
++ [gmail](https://mail.google.com/)
++ [google search console](https://search.google.com/search-console)
++ [google analytics](https://analytics.google.com/)
 
 ## Site tree(plan)
 
@@ -52,3 +56,8 @@ task/deploy
       - index.ja.html
       - index.en.html
 
+
+## Reference
++ [Hakyllを使ってGitHub Pagesを作成して、そのソースも管理して、Travis CIで自動デプロイする。,Posted on April 5, 2015](https://imokuri123.com/blog/2015/04/create-github-pages-with-hakyll.html)
++ [jakubfijalkowski/codinginfinity](https://github.com/jakubfijalkowski/codinginfinity)
++ [Hakyll - automatic sitemap generation, April 26, 2015, tags: haskell, hakyll](https://codinginfinity.me/post/2015-04-26/hakyll_automatic_sitemap_generation)
