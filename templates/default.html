@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="$if(lang)$$lang$$else$en$endif$">
+    <head>
+        <meta charset="utf-8">
+
+        <title>kaznak.work - $title$</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+        <link rel="stylesheet" href="/css/custom.css" />
+
+	<link rel="shortcut icon" href="/img/Chaosphere3DCG.png">
+    </head>
+    <body>
+        <header>
+	    <div class="container">
+		<nav>
+		    <div class="three columns">
+			<a href="/index.html">www.kaznak.work</a>
+		    </div>
+		    <div class="nine columns">
+			<a href="/posts/index.html" class="u-pull-right u-margin-half">
+			    Archive
+			</a>
+		    </div>
+		</nav>
+	    </div>
+        </header>
+
+        <main role="main">
+	    <div class="container">
+		<section class="header">
+		    <div class="twelve columns">
+			<h1>$title$</h1>
+			$if(updated)$
+			  pudated : $updated$
+			$endif$
+			$if(published)$
+			  published : $published$
+			$endif$
+			$if(author)$
+			  ,by $author$
+			$endif$
+		    </div>
+		</section>
+	    </div>
+	    <div class="container">
+		<section class="body">
+		    <div class="twelve columns">
+			$body$
+		    </div>
+		</section>
+	    </div>
+        </main>
+
+        <footer>
+	    <div class="container">
+		<div class="twelve columns">
+		    Powered by
+		    <a href="http://jaspervdj.be/hakyll">Hakyll</a>,
+		    <a href="http://getskeleton.com/">Sekleton.css</a>,
+		    <a href="https://github.com/">github</a>,
+		    <a href="https://www.netlify.com/">netlify</a>,
+		</div>
+	    </div>
+        </footer>
+    </body>
+</html>
