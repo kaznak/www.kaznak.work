@@ -27,3 +27,6 @@ _site
 .netlify
 node_modules/
 package-lock.json
+
+### * google
+site/google*.html
