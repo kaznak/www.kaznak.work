@@ -1,0 +1,40 @@
+#!/bin/bash
+
+based=$(dirname $0)/..
+pname=$(basename $0)
+stime=$(date +%Y%m%d%H%M%S%Z)
+
+MSG() {
+    echo "$pname $stime $(date +%Y%m%d%H%M%S%Z) $@"	>&2
+}
+
+tmpd=$(mktemp -d --suffix=".$pname.$stime.$$")/
+if [ 0 -ne "$?" ] ; then
+    MSG ERROR can not make temporally directory.
+    exit 1
+fi
+
+trap 'BEFORE_EXIT' EXIT
+BEFORE_EXIT()	{
+    rm -rf $tmpd
+}
+
+IS_SUCCESS() {
+    echo ${PIPESTATUS[@]}	|
+	tr ' \t' '\n'	|
+	grep -qv '^0$'	||
+	return 0
+
+    [ ! -z "$@" ]	&& MSG ERROR $@
+    return 1
+}
+
+PATH="$based/node_modules/.bin:$PATH"
+
+################################################################
+
+exec netlify deploy --site-id practical-kirch-84db32 --path _site
+
+################################################################
+# unreachable
+exit 1
