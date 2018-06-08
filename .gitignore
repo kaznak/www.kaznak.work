@@ -22,3 +22,8 @@ nogit_*
 ### * hakyll
 _cache
 _site
+
+### * netlify-cli
+.netlify
+node_modules/
+package-lock.json
