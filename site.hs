@@ -97,12 +97,10 @@ main = hakyll $ do
   match "templates/*" $
     compile templateBodyCompiler
 
-  match ( (fromGlob $ normalise $ sitePath  ++ "/_*") ) $
-    route routeId
-    >> compile copyFileCompiler
-
   match ( (fromGlob $ normalise $ sitePath  ++ "/img/*") .||.
-          (fromGlob $ normalise $ postsPath ++ "/*/img/*") ) $
+          (fromGlob $ normalise $ postsPath ++ "/*/img/*") .||.
+          (fromGlob $ normalise $ sitePath  ++ "/_*") .||.
+          (fromGlob $ normalise $ sitePath  ++ "/*.html") ) $
     route routeId
     >> compile copyFileCompiler
 
