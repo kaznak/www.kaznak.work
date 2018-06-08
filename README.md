@@ -1,24 +1,40 @@
 
 # blog.kaznak.work
 
-Tech blog
+a blog
 
-## [Hakyll](https://jaspervdj.be/hakyll/)
-### [TUTORIAL: INSTALLATION](https://jaspervdj.be/hakyll/tutorials/01-installation.html)
+## Future works
 
-INSTALLATION
-~~~
-stack install hakyll
-~~~
++ Automated build & deploy
++ Add table of contents for each post
++ Handle multilanguage
++ Handle tags
 
-BUILDING THE EXAMPLE SITE
-~~~
-hakyll-init blog-kaznak-work
-cd blog-kaznak-work
-stack init  # creates stack.yaml file based on my-site.cabal
-stack build
-stack exec site build
-stack exec site watch
-~~~
+## Tools
 
-[sample](http://localhost:8000/)
++ [Hakyll](https://jaspervdj.be/hakyll/)
++ [Sekleton.css](http://getskeleton.com/)
++ [github](https://github.com/)
++ [netlify](https://www.netlify.com/)
+
+## Site tree(plan)
+
++ [root]
+  - css/ : global css
+  - js/  : global javascript
+  - img/ : global images
+  - index.html : protal
+  - index.ja.html
+  - index.en.html
+  - posts/ : directory for posts
+    - index.html : list of posts
+    - index.ja.html
+    - index.en.html
+    - \<YYYY\>-\<MM\>-\<DD\>.\<title-en\>/  : directory for each posts
+      - css/ : post local css
+      - js/  : post local javascript
+      - img/ : post local images
+      - index.html : post main html
+      - index.ja.html
+      - index.en.html
+
