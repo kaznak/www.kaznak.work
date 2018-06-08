@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://practical-kirch-84db32.netlify.com/* https://www.kaznak.work/:splat 301!
