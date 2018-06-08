@@ -3,6 +3,20 @@
 
 a blog
 
+## Usage
+
+### Installation
+
+~~~
+npm install netlify-cli
+~~~
+
+### Deploy
+
+~~~
+task/deploy
+~~~
+
 ## Future works
 
 + Automated build & deploy
