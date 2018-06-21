@@ -1,0 +1,199 @@
+---
+title: My shell script template
+lang: en
+published: 2018-06-21T12:00:00+0900
+tags: memo, shell
+---
+
+## Introduction
+
+This memo explain about [my shell script template](https://gist.github.com/kaznak/56d450339dc9c154b96c04d9161676f6).
+It includes several functions as below:
+
+1. Script setting
+2. Basic variables.
+3. Logging facility.
+4. Message function.
+5. Temporally file directory.
+	- and clean up facility before script exit.
+6. Error detection function.
+
+This script is based on [bash](https://www.gnu.org/software/bash/)
+and uses [GNU core utils](https://www.gnu.org/software/coreutils/coreutils.html),
+But many of facilities is not bash specific and core utils.
+These details are described as below.
+
+Comments are welcome on github gist.
+
+## 1. Script setting
+
+To make run script safely,
+set 2 useful options in the head of script.
+
+~~~
+set -Cu
+~~~
+
+These options are described in [bash manual](https://www.gnu.org/software/bash/manual/bash.txt) as below:
+
+
+> '-C'
+>      Prevent output redirection using '>', '>&', and '<>' from
+>      overwriting existing files.
+
+> '-u'
+>      Treat unset variables and parameters other than the special
+>      parameters '@' or '*' as an error when performing parameter
+>      expansion.  An error message will be written to the standard
+>      error, and a non-interactive shell will exit.
+
+set -e is also useful, you should read about it in the part of manual.
+But many of script uses failure exit status.
+So I don't include it in this template.
+
+## 2. Basic variables.
+
+3 variables defined in the head of template.
+
+~~~
+based=$$(dirname $$0)/..
+pname=$$(basename $$0)
+stime=$$(date +%Y%m%d%H%M%S%Z)
+~~~
+
+"based" is the script base directory.
+It is useful for a starting point for library, log or other related directory.
+
+"pname" is the file name of this script and the "stime" is the process starting time of this script.
+The file name is useful for messaging.
+The starting time also useful for message and some profile purpose.
+
+There are several example of usage for these variables in the below of this script.
+
+## 3. Basic logging facility.
+
+These 3 lines are for loggin of script running.
+
+~~~
+logd=$$based/log
+exec 3>&2 2>$$logd/$$pname.$$stime.$$$$.log
+set -vx
+~~~
+
+The "logd" variable is a directory to put the log file of this script.
+"logd" variable uses "based" variable.
+Therefore, if you place this script into "~/.local/bin",
+"logd" variable points "~/.local/log".
+The log file name consists of 3 parts, script-name,
+process-start-time and process-id,
+to make uniq and easy to refer this log file.
+
+And the "exec" command change redirect of this scripte.
+Afer calling this, file discripter 3 points standard error output.
+and 2 points log file.
+
+The reason of pointing the descripter 2 to log file
+is the "set -vx" behavior.
+It's function is described in [bash manual](https://www.gnu.org/software/bash/manual/bash.txt):
+
+> '-v'
+>      Print shell input lines as they are read.
+
+> '-x'
+>      Print a trace of simple commands, 'for' commands, 'case'
+>      commands, 'select' commands, and arithmetic 'for' commands and
+>      their arguments or associated word lists after they are
+>      expanded and before they are executed.  The value of the 'PS4'
+>      variable is expanded and the resultant value is printed before
+>      the command and its expanded arguments.
+		  
+It is why the "set -vx" line is placed on here
+to avoid log output before setting redirect for logging.
+
+The log files should be erased by cron or something.
+If you don't require log facility,
+comment out these codes and comment is below:
+
+~~~
+# exec 3>&2
+~~~
+
+## 4. Message function.
+
+There is simple Message function.
+
+~~~
+MSG() {
+    echo "$$pname $$stime $$(date +%Y%m%d%H%M%S%Z) $$@"	>&3
+}
+~~~
+
+The message redirects descripter 3 to puts out the screen
+instead of log file.
+The message is like below:
+
+> shellscript-template.sh 20180621114300DST 20180621114300DST INFO This is a message.
+
+## 5. Temporally file directory.
+
+This template serve a temporally file directory.
+
+~~~
+tmpd=$$(mktemp -d --suffix=".$$pname.$$stime.$$$$")/
+if [ 0 -ne "$$?" ] ; then
+    MSG FATAL can not make temporally directory.
+    exit 1
+fi
+~~~
+
+The variable "tmpd" hold the temporally file directory name.
+Fallowing "if" block handle error while making temporally file directory.
+
+This template also delete temporally file directory before exit.
+
+~~~
+trap 'BEFORE_EXIT' EXIT
+BEFORE_EXIT()	{
+    rm -rf $$tmpd
+}
+~~~
+
+The "BEFORE_EXIT()" execute before exit. You can add more work.
+
+## 6. Error detection function.
+
+This template serve an error detection function.
+
+~~~
+IS_ERROR() {
+    echo $${PIPESTATUS[@]}	|
+	tr ' \t' '\n'	|
+	grep -qv '^0$$'
+}
+~~~
+
+The variable "PIPESTATUS" is bash specific.
+It contains all exit status of pipe lined commands previous executed.
+This function processes the exit statuses and finds no zero exit code.
+
+The basic usage of this function as below:
+
+~~~
+IS_ERROR && MSG ERROR while doing something. && exit 1
+~~~
+
+If you want to avoid the error catch of this script,
+You should use grouping or subshell as below:
+
+~~~
+ture
+  | true
+  | {
+      # if you want to ignore the error status of next command,
+	  false
+	  # group the command and true command.
+	  true
+	}
+IS_ERROR && MSG ERROR
+~~~
+
