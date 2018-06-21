@@ -1,2 +1,2 @@
-$for(posts)$
-+ [$title$]($url$)$if(updated)$ - updated: $updated$$endif$$if(published)$ - published: $published$$endif$$endfor$
+$for(posts)$$if(updated)$+ [$title$]($url$) - updated: $updated$ $endif$
+$if(published)$+ [$title$]($url$) - published: $published$ $endif$ $endfor$
