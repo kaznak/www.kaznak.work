@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
-    "format": "prettier --write .{babel,prettier}rc **/*.{json,js,ts,tsx}",
+    "format": "prettier --write .{babel,prettier}rc **/*.{json,js,ts,tsx,css}",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "test": "jest",
     "test-all": "pnpm run lint && pnpm run type-check && pnpm run test"
