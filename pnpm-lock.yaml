@@ -18,6 +18,7 @@ devDependencies:
   jest: 25.5.4
   jest-watch-typeahead: 0.5.0
   lint-staged: 10.2.10
+  postcss-flexbugs-fixes: 4.2.1
   postcss-preset-env: 6.7.0
   prettier: 2.0.5
   tailwindcss: 1.4.6
@@ -6920,6 +6921,12 @@ packages:
       node: '>=6.0.0'
     resolution:
       integrity: sha512-rwac4BuZlITeUbiBq60h/xbLzXY43qOsIErngWa4l7Mt+RaSkT7QBjXVGTcBHupykkblHMDrBFh30zchYPaOUw==
+  /postcss-flexbugs-fixes/4.2.1:
+    dependencies:
+      postcss: 7.0.32
+    dev: true
+    resolution:
+      integrity: sha512-9SiofaZ9CWpQWxOwRh1b/r85KD5y7GgvsNt1056k6OYLvWUun0czCvogfJgylC22uJTwW1KzY3Gz65NZRlvoiQ==
   /postcss-focus-visible/4.0.0:
     dependencies:
       postcss: 7.0.32
@@ -9578,6 +9585,7 @@ specifiers:
   jest-watch-typeahead: ^0.5.0
   lint-staged: ^10.2.10
   next: latest
+  postcss-flexbugs-fixes: ^4.2.1
   postcss-preset-env: ^6.7.0
   prettier: ^2.0.5
   react: ^16.13.1
