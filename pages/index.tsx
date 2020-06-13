@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 export const Home = (): JSX.Element => (
-  <div className="my-container">
+  <div className="container container-extension">
     <Head>
       <title>Create Next App</title>
       <link rel="icon" href="/favicon.ico" />
