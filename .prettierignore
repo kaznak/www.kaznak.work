@@ -1,5 +1,13 @@
-node_modules
-.next
-yarn.lock
-package-lock.json
-public
+# Directory
+/../
+
+# Node.js
+/node_modules/
+## npm
+/package-lock.json
+/yarn.lock
+/pnpm-lock.yaml
+
+# Next.js
+/.next/
+/out/
