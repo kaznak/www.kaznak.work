@@ -1,0 +1,4 @@
+- name: '@mdx-js/loader'
+  version: '^1.6.5'
+  addition:
+    - '@mdx-js/react'
