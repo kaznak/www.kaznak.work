@@ -1,7 +1,7 @@
 {
-  "name": "with-typescript-eslint-jest",
-  "author": "@erikdstock",
-  "license": "MIT",
+  "name": "www.kaznak.work",
+  "author": "kaznak <kaznak.at.work@gmail.com>",
+  "license": "No License",
   "version": "1.0.0",
   "private": true,
   "scripts": {
