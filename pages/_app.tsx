@@ -1,7 +1,7 @@
 import '../styles/index.css'
 
 type MyAppArg = {
-  Component: any
+  Component: any // !!TODO!! specify precise type
   pageProps: Record<string, any>
 }
 
