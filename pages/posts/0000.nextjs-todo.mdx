@@ -1,0 +1,68 @@
+# Next.js TODOs
+
+## import パスのエイリアスを設定する
+
+### はじめに
+
+Next.js で自前のファイルは相対パスで参照することになるが、そうすると `..` の嵐になるので、
+プロジェクトトップディレクトリからのパスで指定したい。例えばこんな感じ:
+
+```
+import * as params from '~/lib/const';
+```
+
+これは、 `~/` というパスエイリアスを設定すれば実装可能。
+
+実装手法は以下の通り:
+
+1. Webpack のオプションの Alias による実装
+2. tsconfig.json による実装
+3. Babel plugin の module-resolver オプションによる実装
+
+それぞれの実装手段は以下の通り。
+
+### 1. Webpack のオプションの Alias による実装
+
+TODO 実装方法は以下の通り。
+
+この手法は Webpack の名前解決時にのみ適用される。
+したがって TypeScript の型チェックなど、コンパイル時に import ファイルを参照する必要がある場合に対応できない。
+また、 Webpack を通さずに実行される場合(Jest による実行?)にも対応できない。
+
+### 2. tsconfig.json による実装
+
+TODO 実装方法は以下の通り。
+
+この手法は TypeScript にのみ適用される。
+そのため通常の Javascript など他の種類のファイルには適用されない。
+
+### 3. Babel plugin の module-resolver オプションによる実装
+
+パッケージ、 `babel-plugin-module-resolver` を利用する方法。
+同パッケージをインストールし、　 Babel が読み込むように設定する。例えば以下の通り。
+
+```.babelrc
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "debug": true,
+        "alias": {
+          "~/": "./"
+        },
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".mdx"]
+      }
+    ]
+  ]
+}
+```
+
+この手法は Babel を通す方法である。
+Babel では Plugin が先に適用され、その後 Presets が適用される。
+TypeScript も Jest もいずれも Babel を使用するので、おおよそ全ての場合に対応可能である。
+
+### 問題
+
+コンパイル時にパスの変換が行われていないことに由来するエラーが発生する。
