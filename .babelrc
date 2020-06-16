@@ -1,3 +1,25 @@
 {
-  "presets": ["next/babel"]
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": { "debug": true },
+        "transform-runtime": {},
+        "styled-jsx": {},
+        "class-properties": {}
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "debug": true,
+        "alias": {
+          "~/": "./"
+        },
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".mdx"]
+      }
+    ]
+  ]
 }
