@@ -1,5 +1,5 @@
 // reference: https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config
-const util = require('util')
+// const util = require('util')
 
 module.exports = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
