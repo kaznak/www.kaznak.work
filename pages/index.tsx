@@ -1,4 +1,7 @@
 import Head from 'next/head'
+import * as params from '~/lib/const'
+
+console.warn(params)
 
 export const Home = (): JSX.Element => (
   <div className="container">
