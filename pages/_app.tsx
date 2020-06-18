@@ -1,15 +1,10 @@
 import * as params from '../lib/const'
 
+import { AppProps } from 'next/app'
 import Head from 'next/head'
 import '../styles/index.css'
 
-interface MyAppArg {
-  Component: any // !!TODO!! specify precise type
-  router: any // !!TODO!! specify precise type
-  pageProps: Record<string, any>
-}
-
-export const MyApp = (page: MyAppArg) => {
+export const MyApp = (page: AppProps) => {
   const { Component, router, pageProps } = page
   return (
     <>
