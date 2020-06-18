@@ -1,5 +1,15 @@
 # Next.js TODOs
 
+## DONE VSCode で .mdx ファイルをハイライトする
+
+VSCode MDX を使用。
+
+でも Narrowing してくれない。
+
+## 適切な型付けをする
+
+- \_app.tsx
+
 ## import パスのエイリアスを設定する
 
 ### はじめに
@@ -7,7 +17,7 @@
 Next.js で自前のファイルは相対パスで参照することになるが、そうすると `..` の嵐になるので、
 プロジェクトトップディレクトリからのパスで指定したい。例えばこんな感じ:
 
-```
+```Javascript
 import * as params from '~/lib/const';
 ```
 
@@ -41,7 +51,7 @@ TODO 実装方法は以下の通り。
 パッケージ、 `babel-plugin-module-resolver` を利用する方法。
 同パッケージをインストールし、　 Babel が読み込むように設定する。例えば以下の通り。
 
-```.babelrc
+```json
 {
   "presets": ["next/babel"],
   "plugins": [
