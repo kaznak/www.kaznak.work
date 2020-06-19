@@ -21,7 +21,9 @@ devDependencies:
   jest-watch-typeahead: 0.5.0
   lint-staged: 10.2.10
   postcss-flexbugs-fixes: 4.2.1
+  postcss-jsx: 0.36.4_postcss-syntax@0.36.2
   postcss-preset-env: 6.7.0
+  postcss-syntax: 0.36.2
   prettier: 2.0.5
   tailwindcss: 1.4.6
   typescript: 3.9.5
@@ -7315,6 +7317,16 @@ packages:
     dev: true
     resolution:
       integrity: sha512-zS59pAk3deu6dVHyrGqmC3oDXBdNdajk4k1RyxeVXCrcEDBUBHoIhE4QTsmhxgzXxsaqFDAkUZfmMa5f/N/79w==
+  /postcss-jsx/0.36.4_postcss-syntax@0.36.2:
+    dependencies:
+      '@babel/core': 7.10.2
+      postcss-syntax: 0.36.2
+    dev: true
+    peerDependencies:
+      postcss: '>=5.0.0'
+      postcss-syntax: '>=0.36.0'
+    resolution:
+      integrity: sha512-jwO/7qWUvYuWYnpOb0+4bIIgJt7003pgU3P6nETBLaOyBXuTD55ho21xnals5nBrlpTIFodyd3/jBi6UO3dHvA==
   /postcss-lab-function/2.0.1:
     dependencies:
       '@csstools/convert-colors': 1.4.0
@@ -7725,6 +7737,12 @@ packages:
       node: '>=6.9.0'
     resolution:
       integrity: sha512-C6wyjo3VwFm0QgBy+Fu7gCYOkCmgmClghO+pjcxvrcBKtiKt0uCF+hvbMO1fyv5BMImRK90SMb+dwUnfbGd+jw==
+  /postcss-syntax/0.36.2:
+    dev: true
+    peerDependencies:
+      postcss: '>=5.0.0'
+    resolution:
+      integrity: sha512-nBRg/i7E3SOHWxF3PpF5WnJM/jQ1YpY9000OaVXlAQj6Zp/kIqJxEDWIZ67tAd7NLuk7zqN4yqe9nc0oNAOs1w==
   /postcss-unique-selectors/4.0.1:
     dependencies:
       alphanum-sort: 1.0.2
@@ -10106,7 +10124,9 @@ specifiers:
   lint-staged: ^10.2.10
   next: latest
   postcss-flexbugs-fixes: ^4.2.1
+  postcss-jsx: ^0.36.4
   postcss-preset-env: ^6.7.0
+  postcss-syntax: ^0.36.2
   prettier: ^2.0.5
   react: ^16.13.1
   react-dom: ^16.13.1
