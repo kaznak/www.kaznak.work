@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:icons": "real-favicon generate real-fabicon.json public/icons/fabicon-data.json public/icons",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .{babel,prettier}rc **/*.{json,js,ts,tsx,css,md,mdx}",
