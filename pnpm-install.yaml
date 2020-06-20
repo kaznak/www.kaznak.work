@@ -5,4 +5,4 @@
     - '@mdx-js/react'
   comment: |
     `@mdx-js/loader` automatically inserts import statements for `react` and `@mdx-js/react` to generated react component from MDX file.
-    This behaviour can be changed by giving the import statements as the renderer option to  `@mdx-js/loader`."
+    This behaviour can be changed by giving the import statements as the renderer option to  `@mdx-js/loader`.
