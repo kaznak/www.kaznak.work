@@ -1,7 +1,12 @@
 // reference: https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config
 // const util = require('util')
 
-const withMDX = require('@next/mdx')()
+const rehypePrism = require('@mapbox/rehype-prism')
+const withMDX = require('@next/mdx')({
+  options: {
+    rehypePlugins: [rehypePrism],
+  },
+})
 
 module.exports = withMDX({
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
