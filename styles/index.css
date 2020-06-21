@@ -33,7 +33,7 @@ ol {
 
 .page {
   /* class for page container */
-  @apply px-4;
+  @apply mx-auto px-4 justify-center;
 }
 
 @import 'tailwindcss/utilities';
