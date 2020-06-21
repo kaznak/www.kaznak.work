@@ -29,6 +29,10 @@ ol {
   @apply list-inside list-decimal;
 }
 
+li {
+  @apply pl-4;
+}
+
 @import 'tailwindcss/components';
 
 .page {
