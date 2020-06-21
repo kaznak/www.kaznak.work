@@ -24,6 +24,10 @@ class MyDocument extends Document {
         <Head>
           <Canonical pathname={pathname} />
           <Icons />
+          <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />
