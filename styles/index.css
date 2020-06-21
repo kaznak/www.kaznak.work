@@ -1,3 +1,39 @@
 @import 'tailwindcss/base';
+
+h1 {
+  @apply my-4 text-2xl;
+  border-bottom: solid;
+}
+
+h2 {
+  @apply my-4 text-xl;
+}
+
+h3 {
+  @apply my-4 text-lg;
+}
+
+p {
+  @apply my-4 text-gray-800;
+}
+
+a {
+  @apply text-blue-600;
+}
+
+ul {
+  @apply list-inside list-disc;
+}
+
+ol {
+  @apply list-inside list-decimal;
+}
+
 @import 'tailwindcss/components';
+
+.page {
+  /* class for page container */
+  @apply px-4;
+}
+
 @import 'tailwindcss/utilities';
