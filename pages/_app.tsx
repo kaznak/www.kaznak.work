@@ -7,7 +7,7 @@ import '../styles/index.css'
 const App = (appProps: AppProps) => {
   const { Component, pageProps } = appProps
   return (
-    <div className="container">
+    <div className="page container">
       {Component.isMDXComponent ? (
         <MDXProvider components={MDXComponents}>
           <Component {...pageProps} />
