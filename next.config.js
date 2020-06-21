@@ -1,14 +1,12 @@
 // reference: https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config
 // const util = require('util')
 
-module.exports = {
+const withMDX = require('@next/mdx')()
+
+module.exports = withMDX({
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
-  webpack: (config, { defaultLoaders }) => {
+  webpack: (config) => {
     // console.log(util.inspect(config, { showHidden: false, depth: null }))
-    config.module.rules.push({
-      test: /\.mdx?$/,
-      use: [defaultLoaders.babel, '@mdx-js/loader'],
-    })
     return config
   },
-}
+})
