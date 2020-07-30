@@ -14,4 +14,5 @@ module.exports = withMDX({
     // console.log(util.inspect(config, { showHidden: false, depth: null }))
     return config
   },
+  exportTrailingSlash: true,
 })
