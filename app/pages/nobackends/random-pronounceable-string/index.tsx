@@ -1,6 +1,7 @@
 import { BlitzPage } from "blitz"
 import Layout from "app/core/layouts/Layout"
 
+// !TODO! refine syllables list
 const syllables = [
   "bi",
   "bo",
@@ -37,13 +38,17 @@ const syllables = [
   "an",
 ]
 
+function toUpperCaseSub(str: string, start = 0, end = 1) {
+  return str.slice(start, end).toUpperCase() + str.slice(end)
+}
+
 function generator() {
   const max = syllables.length
   const glen = 2 + Math.floor(Math.random() * 4)
   const val = Array.from({ length: glen }, (_) => Math.floor(Math.random() * Math.floor(max)))
-    .map((i) => syllables[i])
+    .map((k, i) => syllables[k])
     .join("")
-  return val
+  return toUpperCaseSub(val)
 }
 
 const Page: BlitzPage = () => {
