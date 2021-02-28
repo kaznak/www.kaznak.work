@@ -1,1 +1,1 @@
-export const siteUrlOrigin = process.env.VERCEL_URL || "https://www.example.com"
+export const siteUrlOrigin = process.env.URL_ORIGIN || "https://www.example.com"
