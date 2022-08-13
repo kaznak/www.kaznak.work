@@ -10,3 +10,7 @@ based on hugo 0.87.0
 ```
 HUGO_VERSION=0.87.0
 ```
+
+## reference
+
+- [hugo](https://gohugo.io/)([docs](https://gohugo.io/documentation/), [src](https://github.com/gohugoio/hugo))
