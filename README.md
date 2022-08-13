@@ -14,3 +14,4 @@ HUGO_VERSION=0.87.0
 ## reference
 
 - [hugo](https://gohugo.io/)([docs](https://gohugo.io/documentation/), [src](https://github.com/gohugoio/hugo))
+- [hugo-geekblog](https://hugo-geekblog.geekdocs.de/)([src](https://github.com/thegeeklab/hugo-geekblog))
