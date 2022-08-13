@@ -1,5 +1,5 @@
-baseURL = "http://localhost"
-title = "Geekblog"
+baseURL = "https://www.kaznak.work"
+title = "kaznak.work"
 theme = "hugo-geekblog"
 
 pluralizeListTitles = false
